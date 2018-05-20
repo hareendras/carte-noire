@@ -1,10 +1,10 @@
 # Site settings
-title: "Carte Noire"
+title: "Hareendra Seneviratne"
 email: jacob@jacobtomlinson.co.uk
 description: "A dark blog theme for Jekyll."
 baseurl: ""
 url: "http://carte-noire.jacobtomlinson.co.uk/"
-title_description: "A dark blog theme for Jekyll focusing on a clear reading experience. Large text and a narrow body makes carte noire a gorgeous read. With excellent code snippet support and integrated tools such as AddThis and Disqus giving your Jekyll blog all the functionality your users expect."
+title_description: "After having ten years of industry experience in system implementations in financial sector, Sri lanka I’ve decided to get back into software development and on my way, I need to learn, try and experiment with the interesting tools and whatever stuff I come across. The purpose of this blog is to keep track of my progress and to log the problems and solutions. The opinions expressed in this blog is my opinion and the solutions provided to the problems might not be the perfect, but it’s just what worked for me. I will write whatever that comes to my mind at the time."
 title_image: "https://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
 google_analytics: "UA-20365477-4"
 disqus_account: cartenoire
