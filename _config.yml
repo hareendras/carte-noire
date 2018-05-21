@@ -1,25 +1,25 @@
 # Site settings
 title: "Hareendra Seneviratne"
-email: jacob@jacobtomlinson.co.uk
-description: "A dark blog theme for Jekyll."
+email: hareendras@gmail.com
+description: "Tracking my progress in dev journey"
 baseurl: ""
-url: "http://carte-noire.jacobtomlinson.co.uk/"
+url: "https://hareendras.github.io"
 title_description: "After having ten years of industry experience in system implementations in financial sector, Sri lanka I’ve decided to get back into software development and on my way, I need to learn, try and experiment with the interesting tools and whatever stuff I come across. The purpose of this blog is to keep track of my progress and to log the problems and solutions. The opinions expressed in this blog is my opinion and the solutions provided to the problems might not be the perfect, but it’s just what worked for me. I will write whatever that comes to my mind at the time."
 title_image: "https://www.gravatar.com/avatar/00000000000000000000000000000000?s=500&d=mm"
 google_analytics: "UA-20365477-4"
-disqus_account: cartenoire
-github_repository: https://github.com/jacobtomlinson/carte-noire
+disqus_account: 
+github_repository: 
 addthis_id: ra-513c6fa83da6ec67
 post_limit: 5
 
 # Social usernames/URLs
-twitter_username: _jacobtomlinson
-github_username:  jacobtomlinson
+twitter_username: 
+github_username:  hareendras
 instagram_username: 
 reddit_username: 
-linkedin_link: http://carte-noire.jacobtomlinson.co.uk/
-google_plus_link: http://carte-noire.jacobtomlinson.co.uk/
-stackoverflow_link: http://carte-noire.jacobtomlinson.co.uk/
+linkedin_link: https://www.linkedin.com/in/hareendra-seneviratne-84053a19/
+google_plus_link: #
+stackoverflow_link: #
 xing_link:
 facebook_link:
 
