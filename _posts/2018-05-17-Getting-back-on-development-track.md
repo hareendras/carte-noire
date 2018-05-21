@@ -38,3 +38,28 @@ Side note: Currently I’m writing this blog on a word document and the immediat
 Wohoo!! Doceker container for Jekyll [https://hub.docker.com/r/jekyll/jekyll/](https://hub.docker.com/r/jekyll/jekyll/)
 
 Let’s try to grab that image and give it a shot.
+
+```terminal
+$>docker pull jekyll/Jekyll
+```
+
+Downloading
+
+![downloading](/assets/img/downloading_image.png){:class="img-responsive"}
+
+Done!!
+
+![Done](/assets/img/dowload_done.png){:class="img-responsive"}
+
+Let’s check the downloaded image
+
+```terminal
+$>docker images
+```
+
+![ImgList](/assets/img/img_list.png){:class="img-responsive"}
+
+Cool!
+
+Let’s see how we can use this image. Docs: [https://github.com/envygeeks/jekyll-docker/blob/master/README.md](https://github.com/envygeeks/jekyll-docker/blob/master/README.md)  
+To use the downloaded image as mentioned in above readme, we need to use docker-compose. So let’s create a docker-compose.yml with below content
