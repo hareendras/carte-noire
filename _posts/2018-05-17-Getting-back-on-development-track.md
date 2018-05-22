@@ -86,9 +86,9 @@ And after trying again with command
 $> docker-compose run site jekyll new . --force
 ```
 
-![ImgList](/assets/img/2018-05-17/docker-compose1.png){:class="img-responsive"}
+![ImgList](/assets/img/2018-05-17/docker_compose1.png){:class="img-responsive"}
 ...
-![ImgList](/assets/img/2018-05-17/docker-compose2.png){:class="img-responsive"}
+![ImgList](/assets/img/2018-05-17/docker_compose2.png){:class="img-responsive"}
 
 Awesome!! Files got generated.
 
