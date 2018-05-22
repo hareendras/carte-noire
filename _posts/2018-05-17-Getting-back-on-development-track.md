@@ -14,7 +14,7 @@ tags:
 
 I’ve played around with nodejs express and react technologies and have some idea on the JavaScript scene. I’ve followed some courses in udemy on React and React native technologies and tried building some stuff as side projects.
 
-![work-in-progress](/assets/img/courses.png){:class="img-responsive"}
+![work-in-progress](/assets/2018-05-17/img/courses.png){:class="img-responsive"}
 
 Some side projects I work on these days are TimeApp and AthalBot. TimeApp is and React Native application where I try to replicate [this](http://tiii.me/)  (as much as I can). AthalBot is a facebookBot that returns gags from 9gag and it is integrated with dialog flow for nlp processing. 
 
@@ -22,7 +22,7 @@ Some side projects I work on these days are TimeApp and AthalBot. TimeApp is and
 
 I’ve already finished working on AthalBot and want to publish. When I try to publish this bot however, Facebook requires a privacy policy URL.
 
-![privacy-error](/assets/img/privacy_err.png){:class="img-responsive"}
+![privacy-error](/assets/2018-05-17/img/privacy_err.png){:class="img-responsive"}
 
 So, to publish a url first I must have a site rite? I need some sort of published url before publishing the bot. Meh.. 😐 This might be the best time for me to publish some static site and host the url there. 
 After some research I came across github pages for publishing and site generator called [Jekyll](https://jekyllrb.com/). Github pages supports Jekyll too. Cool. 
@@ -45,11 +45,11 @@ $>docker pull jekyll/Jekyll
 
 Downloading
 
-![downloading](/assets/img/downloading_image.png){:class="img-responsive"}
+![downloading](/assets/2018-05-17/img/downloading_image.png){:class="img-responsive"}
 
 Done!!
 
-![Done](/assets/img/dowload_done.png){:class="img-responsive"}
+![Done](/assets/2018-05-17/img/dowload_done.png){:class="img-responsive"}
 
 Let’s check the downloaded image
 
@@ -57,9 +57,45 @@ Let’s check the downloaded image
 $>docker images
 ```
 
-![ImgList](/assets/img/img_list.png){:class="img-responsive"}
+![ImgList](/assets/2018-05-17/img/img_list.png){:class="img-responsive"}
 
 Cool!
 
 Let’s see how we can use this image. Docs: [https://github.com/envygeeks/jekyll-docker/blob/master/README.md](https://github.com/envygeeks/jekyll-docker/blob/master/README.md)  
 To use the downloaded image as mentioned in above readme, we need to use docker-compose. So let’s create a docker-compose.yml with below content
+
+```yml
+version: "3"
+services:
+  site:
+    command: jekyll serve
+    image: jekyll/jekyll:latest
+    volumes:
+      - C:/Users/hareendras/myblog:/srv/jekyll
+      - C:/Users/hareendras/myblog:/usr/local/bundle
+    ports:
+      - 4000:4000
+      - 35729:35729
+      - 3000:3000
+      -   80:4000
+```
+
+And after trying again with command
+
+```terminal
+$> docker-compose run site jekyll new . --force
+```
+
+![ImgList](/assets/2018-05-17/img/docker-compose1.png){:class="img-responsive"}
+...
+![ImgList](/assets/2018-05-17/img/docker-compose2.png){:class="img-responsive"}
+
+Awesome!! Files got generated.
+
+Aww snap!!
+
+![ImgList](/assets/2018-05-17/img/docker_compose_err.png){:class="img-responsive"}
+
+This error was resolved after restarting docker from the task bar icon. And now as usual to the next error. 😉
+
+![ImgList](/assets/2018-05-17/img/docker_compose_err2.png){:class="img-responsive"}
