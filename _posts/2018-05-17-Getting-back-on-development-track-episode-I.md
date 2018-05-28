@@ -1,13 +1,12 @@
 ---
 layout:     post
-title:      Getting back on development track
+title:      Getting back on development track - Episode I
 date:       2018-05-17 07:39:18
 summary:    Hello world!! this is my very first blog post
 categories: progress
 thumbnail: jekyll
 tags:
- - thumbnils
- - carte noire
+ - thumbnils 
 ---
 
 ## Some background on progress so far
@@ -92,10 +91,4 @@ $> docker-compose run site jekyll new . --force
 
 Awesome!! Files got generated.
 
-Aww snap!!
 
-![ImgList](/assets/img/2018-05-17/docker_compose_err.png){:class="img-responsive"}
-
-This error was resolved after restarting docker from the task bar icon. And now as usual to the next error. 😉
-
-![ImgList](/assets/img/2018-05-17/docker_compose_err2.png){:class="img-responsive"}
