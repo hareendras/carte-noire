@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Getting back on development track - Episode I
+title:      Getting back on track - Episode I
 date:       2018-05-17 07:39:18
 summary:    Hello world!! this is my very first blog post
 categories: progress

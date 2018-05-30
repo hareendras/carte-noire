@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Getting back on development track - Episode II
+title:      Getting back on track - Episode II
 date:       2018-05-18 07:01:18
 summary:    Getting my hands dirty on jekyll
 categories: progress
@@ -66,3 +66,11 @@ Default theme for jekyll looks nice. But let's search for theme which is even be
 
 It turned out that there is absolutely no need to run Jekyll locally to set the site up and running in github pages! :D :D :D Its just a matter of forking an existing Jekyll theme and name the repository as <username>.github.io format. Then the page will be published in https://<username>.github.io. However since we setup the local site it is easier for us to edit the posts locally, test them and publish them after testing locally. Since this is a user page, ie urls has the format of https://<username>/github.io we should do the moifications on master branch and the same should be pushed to github repo named <username>github.io and git hub will automatically build and publish the site for us. Awesome
 
+Now that we have our static site successfully published at gh pagaes, let’s try to understand jekyll mechanism of adding posts. So the next goal is to add the content to the page published.
+Even though running the site on local is not mandatory, since we already have the infrastructure setup in local, let’s just first clone the repository and run it locally anyway.
+So cd into the C:/Users/hareendras/myblog, clear the content and clone the repository. Now let’s try to bring it up locally.
+
+```terminal
+$> docker run -it -p 4000:4000 -v C:/Users/hareendras/myblog:/srv/jekyll -v C:/Users/hareendras/myblog:/usr/local/bundle jekyll/jekyll jekyll serve
+```
+![ImgList](/assets/img/2018-05-18/docker_run.png){:class="img-responsive"}
