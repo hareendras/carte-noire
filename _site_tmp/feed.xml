@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hareendra Seneviratne</title>
+    <description>Tracking my progress in dev journey</description>
+    <link>http://0.0.0.0:4000/</link>
+    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 30 May 2018 08:21:13 -0500</pubDate>
+    <lastBuildDate>Wed, 30 May 2018 08:21:13 -0500</lastBuildDate>
+    <generator>Jekyll v3.8.0</generator>
+    
+      <item>
+        <title>Getting back on track - Episode III</title>
+        <description>&lt;p&gt;This is Part III of getting back on development track posts where I try to record my progress and interesting tools and problems and solutions I come across.&lt;/p&gt;
+
+&lt;p&gt;Now we have our Jekyll site up and running in local using docker container and therefore we can continue creating posts locally and publish it in github pages using git commit. To create new posts, all we need to do is create files under _posts folder and the file name should be yyyy-mm-dd-&lt;post title=&quot;&quot;&gt;.md format&lt;/post&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-18/posts.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 30 May 2018 01:39:18 -0500</pubDate>
+        <link>http://0.0.0.0:4000/progress/2018/05/30/Getting-back-on-track-episode-III/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/progress/2018/05/30/Getting-back-on-track-episode-III/</guid>
+        
+        <category>thumbnils</category>
+        
+        
+        <category>progress</category>
+        
+      </item>
+    
+      <item>
+        <title>Getting back on track - Episode II</title>
+        <description>&lt;p&gt;This is Part II of getting back on development track posts where I try to record my progress and interesting tools and problems and solutions I come across.&lt;/p&gt;
+
+&lt;p&gt;So in last post we had some progress on getting jekyll site up and running using docker. We were able to generate new Jekyll site using Jekyll new command. Let’s work on getting this site up and running.&lt;/p&gt;
+
+&lt;p&gt;Aww snap!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-18/docker_compose_err.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This error was resolved after restarting docker from the task bar icon. And now as usual to the next error. 😉&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-18/docker_compose_err2.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Got rid of this error. The reason was my gem directory was in the same folder as my site root. Explicitly excluding in _config.yml resolved the error. &lt;a href=&quot;http://talk.jekyllrb.com/t/invalid-date-error-using-bundle-exec-jekyll-serve-vendor-not-working/538/3&quot;&gt;more info&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;exclude&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - Gemfile&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - Gemfile.lock&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - node_modules&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - vendor/bundle/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - vendor/cache/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - vendor/gems/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - vendor/ruby/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# - vendor&lt;/span&gt;
+ &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;gems&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Try again…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-18/docker_err2.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks like it is a good time to try some alternative way of getting this up and running locally. So instead of trying with docker-compose, let’s try to run the container using docker run.&lt;/p&gt;
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;go&quot;&gt;docker run -it -v C:/Users/hareendras/myblog:/srv/jekyll -v C:/Users/hareendras/myblog:/usr/local/bundle jekyll/jekyll jekyll new .
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Above command creates a new Jekyll site in current directory of the container.  -v means &lt;sourcepath in=&quot;&quot; my=&quot;&quot; c=&quot;&quot; drive=&quot;&quot;&gt;:&lt;destination path=&quot;&quot; in=&quot;&quot; container=&quot;&quot;&gt; source path is the local path in my laptop and mount path is in container. To use volumes like this, the sharing should be enabled in docker settings.&lt;/destination&gt;&lt;/sourcepath&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-18/docker_share.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Create site.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-18/create.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;run it&lt;/p&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  docker run &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 4000:4000 &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; C:/Users/hareendras/myblog:/srv/jekyll &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; C:/Users/hareendras/myblog:/usr/local/bundle jekyll/jekyll jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Wohoo!! Look ma!! I’m running Jekyll inside my docker container and brought up the site. Yapee!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-18/success.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Default theme for jekyll looks nice. But let’s search for theme which is even better.&lt;/p&gt;
+
+&lt;p&gt;It turned out that there is absolutely no need to run Jekyll locally to set the site up and running in github pages! :D :D :D Its just a matter of forking an existing Jekyll theme and name the repository as &lt;username&gt;.github.io format. Then the page will be published in https://&lt;username&gt;.github.io. However since we setup the local site it is easier for us to edit the posts locally, test them and publish them after testing locally. Since this is a user page, ie urls has the format of https://&lt;username&gt;/github.io we should do the moifications on master branch and the same should be pushed to github repo named &lt;username&gt;github.io and git hub will automatically build and publish the site for us. Awesome&lt;/username&gt;&lt;/username&gt;&lt;/username&gt;&lt;/username&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that we have our static site successfully published at gh pagaes, let’s try to understand jekyll mechanism of adding posts. So the next goal is to add the content to the page published.
+Even though running the site on local is not mandatory, since we already have the infrastructure setup in local, let’s just first clone the repository and run it locally anyway.
+So cd into the C:/Users/hareendras/myblog, clear the content and clone the repository. Now let’s try to bring it up locally.&lt;/p&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; docker run &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 4000:4000 &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; C:/Users/hareendras/myblog:/srv/jekyll &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; C:/Users/hareendras/myblog:/usr/local/bundle jekyll/jekyll jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-18/docker_run.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 May 2018 02:01:18 -0500</pubDate>
+        <link>http://0.0.0.0:4000/progress/2018/05/18/Getting-back-on-track-episode-II/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/progress/2018/05/18/Getting-back-on-track-episode-II/</guid>
+        
+        <category>thumbnils</category>
+        
+        
+        <category>progress</category>
+        
+      </item>
+    
+      <item>
+        <title>Getting back on track - Episode I</title>
+        <description>&lt;h2 id=&quot;some-background-on-progress-so-far&quot;&gt;Some background on progress so far&lt;/h2&gt;
+
+&lt;p&gt;I’ve played around with nodejs express and react technologies and have some idea on the JavaScript scene. I’ve followed some courses in udemy on React and React native technologies and tried building some stuff as side projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-17/courses.png&quot; alt=&quot;work-in-progress&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Some side projects I work on these days are TimeApp and AthalBot. TimeApp is and React Native application where I try to replicate &lt;a href=&quot;http://tiii.me/&quot;&gt;this&lt;/a&gt;  (as much as I can). AthalBot is a facebookBot that returns gags from 9gag and it is integrated with dialog flow for nlp processing.&lt;/p&gt;
+
+&lt;h2 id=&quot;trying-to-publish-athalbot&quot;&gt;Trying to publish AthalBot&lt;/h2&gt;
+
+&lt;p&gt;I’ve already finished working on AthalBot and want to publish. When I try to publish this bot however, Facebook requires a privacy policy URL.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-17/privacy_err.png&quot; alt=&quot;privacy-error&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, to publish a url first I must have a site rite? I need some sort of published url before publishing the bot. Meh.. 😐 This might be the best time for me to publish some static site and host the url there. 
+After some research I came across github pages for publishing and site generator called &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;. Github pages supports Jekyll too. Cool.&lt;/p&gt;
+
+&lt;h2 id=&quot;getting-my-head-around-jekyll&quot;&gt;Getting my head around Jekyll&lt;/h2&gt;
+
+&lt;p&gt;Home: &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;https://jekyllrb.com/&lt;/a&gt; Docs: &lt;a href=&quot;https://jekyllrb.com/docs/home/&quot;&gt;https://jekyllrb.com/docs/home/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mmm looks like Jekyll needs some other stuff to run and windows 10 is not the perfect platform to run Jekyll. So instead of trying to install Jekyll on my windows 10 laptop, I’m going to try Jekyll docker container and get the thing done. (I already have docker installed and have some idea about the images containers and stuff). Let’s get to work!!&lt;/p&gt;
+
+&lt;p&gt;Side note: Currently I’m writing this blog on a word document and the immediate goal I have is to publish this using Jekyll and gh pages. Afterwards I will add the privacy policy URL to the same blog as a page and try to send my facebook bot for approval.&lt;/p&gt;
+
+&lt;p&gt;Wohoo!! Doceker container for Jekyll &lt;a href=&quot;https://hub.docker.com/r/jekyll/jekyll/&quot;&gt;https://hub.docker.com/r/jekyll/jekyll/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s try to grab that image and give it a shot.&lt;/p&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;docker pull jekyll/Jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Downloading&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-17/downloading_image.png&quot; alt=&quot;downloading&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Done!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-17/dowload_done.png&quot; alt=&quot;Done&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s check the downloaded image&lt;/p&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;docker images
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-17/img_list.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Cool!&lt;/p&gt;
+
+&lt;p&gt;Let’s see how we can use this image. Docs: &lt;a href=&quot;https://github.com/envygeeks/jekyll-docker/blob/master/README.md&quot;&gt;https://github.com/envygeeks/jekyll-docker/blob/master/README.md&lt;/a&gt;&lt;br /&gt;
+To use the downloaded image as mentioned in above readme, we need to use docker-compose. So let’s create a docker-compose.yml with below content&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll serve&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;jekyll/jekyll:latest&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;C:/Users/hareendras/myblog:/srv/jekyll&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;C:/Users/hareendras/myblog:/usr/local/bundle&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;4000:4000&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;35729:35729&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;3000:3000&lt;/span&gt;
+      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt;   &lt;span class=&quot;s&quot;&gt;80:4000&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And after trying again with command&lt;/p&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; docker-compose run site jekyll new &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2018-05-17/docker_compose1.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;
+…
+&lt;img src=&quot;/assets/img/2018-05-17/docker_compose2.png&quot; alt=&quot;ImgList&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Awesome!! Files got generated.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 17 May 2018 02:39:18 -0500</pubDate>
+        <link>http://0.0.0.0:4000/progress/2018/05/17/Getting-back-on-track-episode-I/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/progress/2018/05/17/Getting-back-on-track-episode-I/</guid>
+        
+        <category>thumbnils</category>
+        
+        
+        <category>progress</category>
+        
+      </item>
+    
+  </channel>
+</rss>

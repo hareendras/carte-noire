@@ -58,7 +58,7 @@ run it
 ```terminal
 $>  docker run -it -p 4000:4000 -v C:/Users/hareendras/myblog:/srv/jekyll -v C:/Users/hareendras/myblog:/usr/local/bundle jekyll/jekyll jekyll serve
 ```
-Wohoo!! Look ma!! I’m running Jekyll inside my docker container and brought up the site. Yapee!!
+At last success!!
 
 ![ImgList](/assets/img/2018-05-18/success.png){:class="img-responsive"}
 

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting back on track - Episode II</title>
+<meta name="description" content="Tracking my progress in dev journey">
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-513c6fa83da6ec67"></script>
+
+
+
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>Hareendra Seneviratne</p>
+
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search"></i> Search</a></li>
+    </ul>
+
+    <p class="links">
+  
+  <a href="https://www.linkedin.com/in/hareendra-seneviratne-84053a19/" target="_new"><i class="fa fa-linkedin"></i></a>
+  
+  
+  
+  <a href="https://github.com/hareendras" target="_new"><i class="fa fa-github-alt"></i></a>
+  
+  
+  
+  <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+</p>
+
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <img itemprop="image" src="https://i.imgur.com/aRQcGSi.png" alt="Thumbnail: jekyll" />
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Getting back on track - Episode II</h1>
+
+      <div class="author">
+        <small><i>
+          
+          on <span itemprop="datePublished" content="2014-08-28">May 18, 2018</span>
+           under progress
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          3 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+
+        
+
+        <span itemprop="articleBody"><p>This is Part II of getting back on development track posts where I try to record my progress and interesting tools and problems and solutions I come across.</p>
+
+<p>So in last post we had some progress on getting jekyll site up and running using docker. We were able to generate new Jekyll site using Jekyll new command. Let’s work on getting this site up and running.</p>
+
+<p>Aww snap!!</p>
+
+<p><img src="/assets/img/2018-05-18/docker_compose_err.png" alt="ImgList" class="img-responsive" /></p>
+
+<p>This error was resolved after restarting docker from the task bar icon. And now as usual to the next error. 😉</p>
+
+<p><img src="/assets/img/2018-05-18/docker_compose_err2.png" alt="ImgList" class="img-responsive" /></p>
+
+<p>Got rid of this error. The reason was my gem directory was in the same folder as my site root. Explicitly excluding in _config.yml resolved the error. <a href="http://talk.jekyllrb.com/t/invalid-date-error-using-bundle-exec-jekyll-serve-vendor-not-working/538/3">more info</a></p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">exclude</span><span class="pi">:</span>
+<span class="c1"># - Gemfile</span>
+<span class="c1"># - Gemfile.lock</span>
+<span class="c1"># - node_modules</span>
+<span class="c1"># - vendor/bundle/</span>
+<span class="c1"># - vendor/cache/</span>
+<span class="c1"># - vendor/gems/</span>
+<span class="c1"># - vendor/ruby/</span>
+<span class="c1"># - vendor</span>
+ <span class="pi">-</span> <span class="s">gems</span>
+
+</code></pre></div></div>
+
+<p>Try again…</p>
+
+<p><img src="/assets/img/2018-05-18/docker_err2.png" alt="ImgList" class="img-responsive" /></p>
+
+<p>Looks like it is a good time to try some alternative way of getting this up and running locally. So instead of trying with docker-compose, let’s try to run the container using docker run.</p>
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">docker run -it -v C:/Users/hareendras/myblog:/srv/jekyll -v C:/Users/hareendras/myblog:/usr/local/bundle jekyll/jekyll jekyll new .
+</span></code></pre></div></div>
+<p>Above command creates a new Jekyll site in current directory of the container.  -v means <sourcepath in="" my="" c="" drive="">:<destination path="" in="" container=""> source path is the local path in my laptop and mount path is in container. To use volumes like this, the sharing should be enabled in docker settings.</destination></sourcepath></p>
+
+<p><img src="/assets/img/2018-05-18/docker_share.png" alt="ImgList" class="img-responsive" /></p>
+
+<p>Create site.</p>
+
+<p><img src="/assets/img/2018-05-18/create.png" alt="ImgList" class="img-responsive" /></p>
+
+<p>run it</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="o">&gt;</span>  docker run <span class="nt">-it</span> <span class="nt">-p</span> 4000:4000 <span class="nt">-v</span> C:/Users/hareendras/myblog:/srv/jekyll <span class="nt">-v</span> C:/Users/hareendras/myblog:/usr/local/bundle jekyll/jekyll jekyll serve
+</code></pre></div></div>
+<p>Wohoo!! Look ma!! I’m running Jekyll inside my docker container and brought up the site. Yapee!!</p>
+
+<p><img src="/assets/img/2018-05-18/success.png" alt="ImgList" class="img-responsive" /></p>
+
+<p>Default theme for jekyll looks nice. But let’s search for theme which is even better.</p>
+
+<p>It turned out that there is absolutely no need to run Jekyll locally to set the site up and running in github pages! :D :D :D Its just a matter of forking an existing Jekyll theme and name the repository as <username>.github.io format. Then the page will be published in https://<username>.github.io. However since we setup the local site it is easier for us to edit the posts locally, test them and publish them after testing locally. Since this is a user page, ie urls has the format of https://<username>/github.io we should do the moifications on master branch and the same should be pushed to github repo named <username>github.io and git hub will automatically build and publish the site for us. Awesome</username></username></username></username></p>
+
+<p>Now that we have our static site successfully published at gh pagaes, let’s try to understand jekyll mechanism of adding posts. So the next goal is to add the content to the page published.
+Even though running the site on local is not mandatory, since we already have the infrastructure setup in local, let’s just first clone the repository and run it locally anyway.
+So cd into the C:/Users/hareendras/myblog, clear the content and clone the repository. Now let’s try to bring it up locally.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="o">&gt;</span> docker run <span class="nt">-it</span> <span class="nt">-p</span> 4000:4000 <span class="nt">-v</span> C:/Users/hareendras/myblog:/srv/jekyll <span class="nt">-v</span> C:/Users/hareendras/myblog:/usr/local/bundle jekyll/jekyll jekyll serve
+</code></pre></div></div>
+<p><img src="/assets/img/2018-05-18/docker_run.png" alt="ImgList" class="img-responsive" /></p>
+</span>
+
+        
+
+        
+        <div class="share">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+
+        
+        <div class="tags">
+          <small>
+          <i class="fa fa-tags"></i>
+            thumbnils
+          </small>
+        </div>
+        
+
+      </div>
+
+      
+
+      
+
+      
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    Made with <i class="fa fa-heart"></i> by <a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>
+  </div>
+  <div class="col-md-6">
+    &lt;/&gt; on <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20365477-4']);
+          _gaq.push(['_trackPageview']);
+  (function () {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    </body>
+</html>
